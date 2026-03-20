@@ -55,19 +55,43 @@
       display: inline-flex;
       align-items: center;
       gap: .4rem;
-      background: var(--dourado);
-      color: #1a1a2e;
+      background: rgba(209, 184, 143, 0.18);
+      color: #ffffff;
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
       font-size: .95rem;
       padding: .85rem 1.8rem;
       border-radius: 50px;
-      border: none;
+      border: 1px solid rgba(209, 184, 143, 0.45);
       cursor: pointer;
-      transition: background .2s, transform .15s;
       letter-spacing: .01em;
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+      transition: background .25s, box-shadow .25s, transform .15s;
+      position: relative;
+      overflow: hidden;
     }
-    .btn-primary:hover { background: #c4a87a; transform: translateY(-1px); }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.12), transparent);
+      border-radius: 50px 50px 0 0;
+      pointer-events: none;
+    }
+    .btn-primary:hover {
+      background: rgba(209, 184, 143, 0.28);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+      transform: translateY(-1px);
+    }
 
     .btn-outline {
       display: inline-flex;
